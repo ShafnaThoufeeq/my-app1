@@ -1,9 +1,9 @@
-// File: src/app/layout.js
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import TermlyCMP from "./componenent/TermlyCMP";
+import { Suspense } from "react";
 
-const WEBSITE_UUID = "acc52775-e3b8-423f-a76e-de49e5d712f7";
+const WEBSITE_UUID = "ca6469f2-8d74-409d-bfe7-83828d9d9286";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,9 +23,14 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <TermlyCMP websiteUUID={WEBSITE_UUID} />
+      <body suppressHydrationWarning={true}>
         {children}
+        <Suspense fallback={null}>
+          <TermlyCMP 
+            websiteUUID={WEBSITE_UUID}
+            autoBlock={true}
+          />
+        </Suspense>
       </body>
     </html>
   );
