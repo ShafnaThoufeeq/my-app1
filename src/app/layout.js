@@ -1,5 +1,5 @@
 import "./globals.css";
-import TermlyCMP from "./component/TermlyCMP";
+import TermlyCMP from "./componenent/TermlyCMP";
 import { Suspense } from "react";
 
 const WEBSITE_UUID = "ca6469f2-8d74-409d-bfe7-83828d9d9286";
